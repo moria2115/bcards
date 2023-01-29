@@ -1,0 +1,8 @@
+.card {
+    border: 3px solid #2199ea;
+    color: #2199ea;
+}
+
+.card-body {
+    text-align: justify;
+}

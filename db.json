@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Moria Mizrachi",
+      "email": "moria2115@gmail.com",
+      "password": "12345678",
+      "favoriteCards": []
+    },
+    {
+      "name": "Almog",
+      "email": "almog@gmail.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "id": 2
+    },
+    {
+      "name": "Mor",
+      "email": "mor@gmail.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "id": 3
+    },
+    {
+      "id": 1,
+      "name": "Hackeru",
+      "email": "hackeru@gmail.com",
+      "password": "12345678",
+      "isBusiness": true,
+      "myCards": []
+    },
+    {
+      "name": "Held",
+      "email": "held@gmail.com",
+      "password": "12345678",
+      "isBusiness": true,
+      "id": 4
+    },
+    {
+      "name": "Aviv",
+      "email": "aviv@gmail.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "id": 5
+    },
+    {
+      "name": "Yuval",
+      "email": "yuval@gamil.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "id": 6
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Hackeru",
+      "description": "HackerU is an Israeli training company in the field of computing and information technology.",
+      "website": "www.hackeru.com",
+      "phone": "03-6135565",
+      "address": "שוהם 5, רמת גן, 52521",
+      "image": "https://www.hackeru.co.il/co/assets/images/hackeru_logo.png"
+    },
+    {
+      "name": "Rami levy",
+      "description": "Supermarket",
+      "website": "rami-levy.co.il",
+      "phone": "03986689",
+      "address": "השקמה 3 תל אביב",
+      "image": "https://upload.wikimedia.org/wikipedia/he/7/7a/RAMILEVI.png",
+      "id": 2,
+      "userId": 4
+    }
+  ]
+}
