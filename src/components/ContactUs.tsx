@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { FunctionComponent, useEffect } from "react";
 import * as yup from "yup";
+import { successMsg } from "../services/feebacks";
 
 interface ContactUsProps {}
 
@@ -12,23 +13,10 @@ const ContactUs: FunctionComponent<ContactUsProps> = () => {
       email: yup.string().required().email().min(5),
       phone: yup.number().required(),
     }),
-    onSubmit: (values) => {
-      //   checkUser(values)
-      //     .then((res) => {
-      //       if (res.data.length) {
-      //         navigate("/");
-      //         setIsLoggedIn(true);
-      //         sessionStorage.setItem(
-      //           "userData",
-      //           JSON.stringify({
-      //             isLoggedin: true,
-      //             userId: res.data[0].id,
-      //           })
-      //         );
-      //         successMsg("Youe logged in Successfully!");
-      //       } else errorMsg("Wrong Email or Password!");
-      //     })
-      //     .catch((err) => console.log(err));
+    onSubmit: (values, { resetForm }) => {
+      successMsg("Youe logged in Successfully!");
+      formik.setFieldValue("phone", "");
+      resetForm();
     },
   });
   useEffect(() => {
@@ -38,11 +26,12 @@ const ContactUs: FunctionComponent<ContactUsProps> = () => {
     <>
       <div className="container mt-3 text-center">
         <h3 className="display-3">CONTACT US</h3>
-        <div className="alert alert-primary" role="alert">
-          For all other questions, please use the form below.
-        </div>
+
         <div className="row">
           <div className="col-md-6">
+            <div className="alert alert-primary" role="alert">
+              For all other questions, please use the form below.
+            </div>
             <form onSubmit={formik.handleSubmit}>
               <div className="form-floating my-3">
                 <input
@@ -104,7 +93,7 @@ const ContactUs: FunctionComponent<ContactUsProps> = () => {
           </div>
           <div className="container col-md-6">
             <img
-              height={"300rem"}
+              height={"350rem"}
               src="/images/Tech_Tech_Website_in_Teal_White_Navy_Gradients_Style-removebg-preview.png"
               alt=""
             />
