@@ -103,14 +103,11 @@ const ContactUs: FunctionComponent<ContactUsProps> = () => {
             </form>
           </div>
           <div className="container col-md-6">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3376.9521138289833!2d34.9322535!3d32.178566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d399ec45de401%3A0x64f9927c76f1ffb5!2z16LXntenINeX15XXqNeV158gNiwg15vXpNeoINeh15HXkA!5e0!3m2!1siw!2sil!4v1675237449086!5m2!1siw!2sil"
-              //   width="630rem"
-              height="270rem"
-              style={{ border: "0" }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <img
+              height={"300rem"}
+              src="/images/Tech_Tech_Website_in_Teal_White_Navy_Gradients_Style-removebg-preview.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
