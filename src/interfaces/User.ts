@@ -6,5 +6,5 @@ export default interface User {
   email: string;
   password: string;
   isBusiness?: boolean;
-  myCards?: Card[];
+  favoriteCards?: Card[];
 }

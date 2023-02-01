@@ -1,5 +1,6 @@
 .card {
-    border: 3px solid #2199ea;
+    /* border: 1px solid #2199ea; */
+    border: none;
     color: #2199ea;
 }
 

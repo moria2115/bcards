@@ -9,6 +9,8 @@ interface SignUpProps {
 
 const SignUp: FunctionComponent<SignUpProps> = ({ setIsLoggedIn }) => {
   let [isBusiness, setIsBusiness] = useState<boolean>(false);
+
+  
   return (
     <>
       <div className="container mt-3 col-md-4 text-center">

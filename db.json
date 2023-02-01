@@ -5,29 +5,8 @@
       "name": "Moria Mizrachi",
       "email": "moria2115@gmail.com",
       "password": "12345678",
+      "isBusiness": false,
       "favoriteCards": []
-    },
-    {
-      "name": "Almog",
-      "email": "almog@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "id": 2
-    },
-    {
-      "name": "Mor",
-      "email": "mor@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "id": 3
-    },
-    {
-      "id": 1,
-      "name": "Hackeru",
-      "email": "hackeru@gmail.com",
-      "password": "12345678",
-      "isBusiness": true,
-      "myCards": []
     },
     {
       "name": "Held",
@@ -37,18 +16,12 @@
       "id": 4
     },
     {
-      "name": "Aviv",
-      "email": "aviv@gmail.com",
+      "name": "almog",
+      "email": "almog@gmail.com",
       "password": "12345678",
       "isBusiness": false,
-      "id": 5
-    },
-    {
-      "name": "Yuval",
-      "email": "yuval@gamil.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "id": 6
+      "id": 5,
+      "favoriteCards": [2]
     }
   ],
   "cards": [

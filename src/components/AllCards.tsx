@@ -1,6 +1,8 @@
 import { FunctionComponent, useEffect, useState } from "react";
 import Card from "../interfaces/Card";
 import { getAllCards } from "../services/cardsService";
+import { successMsg } from "../services/feebacks";
+import { addCardToFavorites } from "../services/usersService";
 
 interface AllCardsProps {}
 
@@ -12,6 +14,7 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
       .then((res) => setCards(res.data))
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <>
       {cards.length ? (
@@ -39,30 +42,15 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
                   <button
                     className="btn btn-outline-warning  w-100 "
                     onClick={() => {
-                      // addProductToCart(product.id as number)
-                      //     .then(() =>
-                      //         successMsg(`Product ${product.name} added to cart`)
-                      //     )
-                      //     .catch((err) => console.log(err));
+                      addCardToFavorites(card.id as number)
+                        .then(() =>
+                          successMsg(`Card ${card.name} added to favorites`)
+                        )
+                        .catch((err) => console.log(err));
                     }}
                   >
                     <i className="fa-regular fa-heart"></i>
                   </button>
-
-                  {/* {isAdmin && <>
-                                    <button className="btn btn-warning mx-1" onClick={() => {
-                                        setOpenUpdateModal(true);
-                                        setProductId(product.id as number);
-                                    }}>
-                                        <i className="fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button className="btn btn-danger mx-1" onClick={() => {
-                                        setOpenDeleteModal(true);
-                                        setProductId(product.id as number);
-                                    }}>
-                                        <i className="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </>} */}
                 </div>
               </div>
             ))}

@@ -2,38 +2,37 @@ import axios from "axios";
 import { FunctionComponent, useEffect, useState } from "react";
 import Card from "../interfaces/Card";
 import DeleteCardModal from "./DeleteCardModal";
-import UpdateCardModal from "./UpdateCardModal";
 
-interface MyCardsProps {}
+interface FavoritesCardsProps {}
 
-const MyCards: FunctionComponent<MyCardsProps> = () => {
-  let [myCards, setMyCards] = useState<Card[]>([]);
+const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
+  let [favoriteCards, setFavoriteCards] = useState<Card[]>([]);
   let [cardId, setCardId] = useState<number>(0);
   let [cardsChange, setCardsChange] = useState<boolean>(false);
   let [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
-  let [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
 
   useEffect(() => {
-    getMyCards();
+    getFavoriteCards();
   }, [cardsChange]);
 
   let refresh = () => {
     setCardsChange(!cardsChange);
   };
 
-  let getMyCards = async () => {
+  let getFavoriteCards = async () => {
     try {
       let userId: number = JSON.parse(
         sessionStorage.getItem("userData") as string
       ).userId;
 
       let cardsRes = await axios.get(
-        `${process.env.REACT_APP_API}/cards?userId=${userId}`
+        `${process.env.REACT_APP_API}/users?userId=${userId}`
       );
+      console.log(cardsRes);
 
       let cardsArr: any = cardsRes.data;
 
-      setMyCards(cardsArr);
+      setFavoriteCards(cardsArr);
     } catch (error) {
       console.log(error);
     }
@@ -41,10 +40,10 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 
   return (
     <>
-      {myCards.length ? (
+      {favoriteCards.length ? (
         <div className="container">
           <div className="row">
-            {myCards.map((card: Card) => (
+            {favoriteCards.map((card: Card) => (
               <div
                 key={card.id}
                 className="card ms-1"
@@ -62,15 +61,6 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
                   <p className="text-success">{card.phone}</p>
                   <p className="text-success">{card.address}</p>
                   <p className="text-success">{card.website}</p>
-                  <button
-                    className="btn btn-warning"
-                    onClick={() => {
-                      setOpenUpdateModal(true);
-                      setCardId(card.id as number);
-                    }}
-                  >
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>
                   <button
                     className="btn btn-danger mx-2"
                     onClick={() => {
@@ -95,14 +85,8 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
         onHide={() => setOpenDeleteModal(false)}
         cardId={cardId}
       />
-      <UpdateCardModal
-        refresh={refresh}
-        show={openUpdateModal}
-        onHide={() => setOpenUpdateModal(false)}
-        cardId={cardId}
-      />
     </>
   );
 };
 
-export default MyCards;
+export default FavoritesCards;

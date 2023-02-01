@@ -1,5 +1,8 @@
-import { FunctionComponent } from "react";
+import { error } from "console";
+import { FunctionComponent, useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+// import { userDetails } from "../App";
+import User from "../interfaces/User";
 import { successMsg } from "../services/feebacks";
 
 interface NavbarProps {
@@ -12,6 +15,8 @@ const Navbar: FunctionComponent<NavbarProps> = ({
   setIsLoggedIn,
 }) => {
   let navigate = useNavigate();
+  // let user: User = useContext(userDetails);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-white">
@@ -37,12 +42,13 @@ const Navbar: FunctionComponent<NavbarProps> = ({
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item mx-3">
-                <NavLink
-                  className="nav-link text-primary"
-                  aria-current="page"
-                  to="/profile"
-                >
-                  Profile
+                <NavLink className="nav-link text-primary" to="/signin">
+                  Sign in
+                </NavLink>
+              </li>
+              <li className="nav-item mx-3">
+                <NavLink className="nav-link text-primary" to="/signup">
+                  Sign up
                 </NavLink>
               </li>
               <li className="nav-item mx-3">
@@ -60,29 +66,44 @@ const Navbar: FunctionComponent<NavbarProps> = ({
                   aria-current="page"
                   to="/cards"
                 >
-                  Cards
+                  Business Cards
                 </NavLink>
               </li>
-              <li className="nav-item mx-3">
-                <NavLink className="nav-link text-primary" to="/signin">
-                  Sign in
-                </NavLink>
-              </li>
-              <li className="nav-item mx-3">
-                <NavLink className="nav-link text-primary" to="/signup">
-                  Sign up
-                </NavLink>
-              </li>
+              {isLoggedIn && (
+                <>
+                  <li className="nav-item mx-3">
+                    <NavLink
+                      className="nav-link text-primary"
+                      aria-current="page"
+                      to="/profile"
+                    >
+                      Profile
+                    </NavLink>
+                  </li>
+                  <li className="nav-item mx-3">
+                    <NavLink className="nav-link text-primary" to="/myCards">
+                      My Cards
+                    </NavLink>
+                  </li>
+                  <li className="nav-item mx-3">
+                    <NavLink
+                      className="nav-link text-primary"
+                      to="/favoriteCards"
+                    >
+                      Favorite Cards
+                    </NavLink>
+                  </li>
+                </>
+              )}
+              {/* {user.isBusiness && isLoggedIn && ( */}
+              {/* <> */}
               <li className="nav-item mx-3">
                 <NavLink className="nav-link text-primary" to="/newCard">
                   Create New Card
                 </NavLink>
               </li>
-              <li className="nav-item mx-3">
-                <NavLink className="nav-link text-primary" to="/myCards">
-                  My Cards
-                </NavLink>
-              </li>
+              {/* </> */}
+              {/* )} */}
             </ul>
             {isLoggedIn && (
               <form className="d-flex" role="search">

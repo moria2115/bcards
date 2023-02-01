@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import User from "../interfaces/User";
 import { successMsg } from "../services/feebacks";
-import { addNewUser } from "../services/usersService";
+import { addNewUser, createFavoriteCards } from "../services/usersService";
 
 interface SignUpUserProps {
   isBusiness: boolean;
@@ -26,13 +26,13 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({
     onSubmit: (values: User) => {
       addNewUser({ ...values, isBusiness: isBusiness })
         .then((res) => {
+          createUserFavorites(res.data.id);
           navigate("/");
           setIsLoggedIn(true);
           sessionStorage.setItem(
             "userData",
             JSON.stringify({
               isLoggedin: true,
-              // isBusiness: isBusiness,
               userId: res.data.id,
             })
           );
@@ -41,6 +41,9 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({
         .catch((err) => console.log(err));
     },
   });
+
+  let createUserFavorites = (userId: number) =>
+    createFavoriteCards(userId).catch((err) => console.log(err));
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
