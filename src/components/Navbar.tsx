@@ -104,6 +104,15 @@ const Navbar: FunctionComponent<NavbarProps> = ({
               </li>
               {/* </> */}
               {/* )} */}
+              <li className="nav-item mx-3">
+                <NavLink
+                  className="nav-link text-primary"
+                  aria-current="page"
+                  to="/contactUs"
+                >
+                  Contact Us
+                </NavLink>
+              </li>
             </ul>
             {isLoggedIn && (
               <form className="d-flex" role="search">
