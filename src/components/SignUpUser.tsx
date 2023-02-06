@@ -1,20 +1,18 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext, useEffect } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import User from "../interfaces/User";
 import { successMsg } from "../services/feebacks";
 import { addNewUser, createFavoriteCards } from "../services/usersService";
+import { UserContext } from "../App";
 
 interface SignUpUserProps {
   isBusiness: boolean;
-  setIsLoggedIn: Function;
 }
 
-const SignUpUser: FunctionComponent<SignUpUserProps> = ({
-  isBusiness,
-  setIsLoggedIn,
-}) => {
+const SignUpUser: FunctionComponent<SignUpUserProps> = ({ isBusiness }) => {
+  let UserCtx = useContext(UserContext);
   let navigate = useNavigate();
   let formik = useFormik({
     initialValues: { name: "", email: "", password: "" },
@@ -24,18 +22,17 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({
       password: yup.string().required().min(8),
     }),
     onSubmit: (values: User) => {
-      addNewUser({ ...values, isBusiness: isBusiness })
+      const newObj = { ...values, isBusiness: isBusiness, isLoggedIn: true };
+
+      UserCtx.changeUser({ ...newObj, favoriteCards: [] });
+
+      addNewUser(newObj)
         .then((res) => {
           createUserFavorites(res.data.id);
           navigate("/");
-          setIsLoggedIn(true);
-          sessionStorage.setItem(
-            "userData",
-            JSON.stringify({
-              isLoggedin: true,
-              userId: res.data.id,
-            })
-          );
+
+          sessionStorage.setItem("userId", JSON.stringify(res.data.id));
+
           successMsg("Youe registered Successfully!");
         })
         .catch((err) => console.log(err));
@@ -67,7 +64,7 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({
           <input
             type="email"
             className="form-control"
-            id="floatingInput"
+            id="floatingemail"
             placeholder="name@example.com"
             name="email"
             value={formik.values.email}

@@ -1,21 +1,14 @@
-import { error } from "console";
 import { FunctionComponent, useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import { userDetails } from "../App";
-import User from "../interfaces/User";
+import { UserContext } from "../App";
 import { successMsg } from "../services/feebacks";
 
-interface NavbarProps {
-  isLoggedIn: boolean;
-  setIsLoggedIn: Function;
-}
+interface NavbarProps {}
 
-const Navbar: FunctionComponent<NavbarProps> = ({
-  isLoggedIn,
-  setIsLoggedIn,
-}) => {
+const Navbar: FunctionComponent<NavbarProps> = ({}) => {
+  let UserCtx = useContext(UserContext);
+
   let navigate = useNavigate();
-  // let user: User = useContext(userDetails);
 
   return (
     <>
@@ -69,7 +62,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({
                   Business Cards
                 </NavLink>
               </li>
-              {isLoggedIn && (
+              {UserCtx.userctx.isLoggedIn && (
                 <>
                   <li className="nav-item mx-3">
                     <NavLink
@@ -95,15 +88,6 @@ const Navbar: FunctionComponent<NavbarProps> = ({
                   </li>
                 </>
               )}
-              {/* {user.isBusiness && isLoggedIn && ( */}
-              {/* <> */}
-              <li className="nav-item mx-3">
-                <NavLink className="nav-link text-primary" to="/newCard">
-                  Create New Card
-                </NavLink>
-              </li>
-              {/* </> */}
-              {/* )} */}
               <li className="nav-item mx-3">
                 <NavLink
                   className="nav-link text-primary"
@@ -113,14 +97,24 @@ const Navbar: FunctionComponent<NavbarProps> = ({
                   Contact Us
                 </NavLink>
               </li>
+              <li className="nav-item mx-3">
+                <NavLink className="nav-link text-primary" to="/newCard">
+                  Create New Card
+                </NavLink>
+              </li>
             </ul>
-            {isLoggedIn && (
+            {UserCtx.userctx.isLoggedIn && (
               <form className="d-flex" role="search">
                 <button
                   className="btn btn-outline-success"
                   onClick={() => {
-                    setIsLoggedIn(false);
-                    sessionStorage.removeItem("userData");
+                    UserCtx.changeUser({
+                      ...UserCtx.userctx,
+                      isLoggedIn: false,
+                    });
+                    console.log(UserCtx.userctx);
+
+                    sessionStorage.removeItem("userId");
                     successMsg("See you soon...");
                     navigate("/");
                   }}

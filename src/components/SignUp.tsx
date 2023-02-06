@@ -1,16 +1,14 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useContext, useState } from "react";
 import { Link } from "react-router-dom";
+// import { UserContext } from "../App";
 import "../css/forms.css";
 import SignUpUser from "./SignUpUser";
 
-interface SignUpProps {
-  setIsLoggedIn: Function;
-}
+interface SignUpProps {}
 
-const SignUp: FunctionComponent<SignUpProps> = ({ setIsLoggedIn }) => {
+const SignUp: FunctionComponent<SignUpProps> = ({}) => {
   let [isBusiness, setIsBusiness] = useState<boolean>(false);
 
-  
   return (
     <>
       <div className="container mt-3 col-md-4 text-center">
@@ -31,7 +29,7 @@ const SignUp: FunctionComponent<SignUpProps> = ({ setIsLoggedIn }) => {
               I'm a Business owner
             </label>
           </div>
-          <SignUpUser isBusiness={isBusiness} setIsLoggedIn={setIsLoggedIn} />
+          <SignUpUser isBusiness={isBusiness} />
         </div>
 
         <Link to="/">Already have a user? Login here</Link>

@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../css/home.css";
 

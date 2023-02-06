@@ -14,7 +14,7 @@ const ContactUs: FunctionComponent<ContactUsProps> = () => {
       phone: yup.number().required(),
     }),
     onSubmit: (values, { resetForm }) => {
-      successMsg("Youe logged in Successfully!");
+      successMsg("Thank You!");
       formik.setFieldValue("phone", "");
       resetForm();
     },
