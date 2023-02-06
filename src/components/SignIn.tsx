@@ -1,17 +1,17 @@
 import { useFormik } from "formik";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import User from "../interfaces/User";
 import "../css/forms.css";
 import { checkUser } from "../services/usersService";
 import { errorMsg, successMsg } from "../services/feebacks";
+import { UserContext } from "../App";
 
-interface SignInProps {
-  setIsLoggedIn: Function;
-}
+interface SignInProps {}
 
-const SignIn: FunctionComponent<SignInProps> = ({ setIsLoggedIn }) => {
+const SignIn: FunctionComponent<SignInProps> = () => {
+  let UserCtx = useContext(UserContext);
   let navigate = useNavigate();
   let formik = useFormik({
     initialValues: { email: "", password: "" },
@@ -23,15 +23,9 @@ const SignIn: FunctionComponent<SignInProps> = ({ setIsLoggedIn }) => {
       checkUser(values)
         .then((res) => {
           if (res.data.length) {
+            UserCtx.changeUser({ ...res.data, isLoggedIn: true });
+            sessionStorage.setItem("userId", JSON.stringify(res.data[0].id));
             navigate("/");
-            setIsLoggedIn(true);
-            sessionStorage.setItem(
-              "userData",
-              JSON.stringify({
-                isLoggedin: true,
-                userId: res.data[0].id,
-              })
-            );
             successMsg("Youe logged in Successfully!");
           } else errorMsg("Wrong Email or Password!");
         })

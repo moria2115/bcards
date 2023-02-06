@@ -73,6 +73,7 @@ const Navbar: FunctionComponent<NavbarProps> = ({}) => {
                       Profile
                     </NavLink>
                   </li>
+                  
                   <li className="nav-item mx-3">
                     <NavLink className="nav-link text-primary" to="/myCards">
                       My Cards
@@ -112,7 +113,6 @@ const Navbar: FunctionComponent<NavbarProps> = ({}) => {
                       ...UserCtx.userctx,
                       isLoggedIn: false,
                     });
-                    console.log(UserCtx.userctx);
 
                     sessionStorage.removeItem("userId");
                     successMsg("See you soon...");

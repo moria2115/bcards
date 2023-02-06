@@ -83,6 +83,15 @@
       "isLoggedIn": true,
       "id": 12,
       "favoriteCards": []
+    },
+    {
+      "name": "adsfds",
+      "email": "sdfsd@gmail.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "isLoggedIn": true,
+      "id": 13,
+      "favoriteCards": []
     }
   ],
   "cards": [

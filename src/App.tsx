@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import ContactUs from "./components/ContactUs";
 import User from "./interfaces/User";
 import { getUserById } from "./services/usersService";
+import SignIn from "./components/SignIn";
 
 const emptyUser: User = {
   name: "",
@@ -64,10 +65,7 @@ export function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            {/* <Route
-              path="/signin"
-              element={<SignIn setIsLoggedIn={setIsLoggedIn} />}
-              ></Route> */}
+            <Route path="/signin" element={<SignIn />}></Route>
             <Route path="/signup" element={<SignUp />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/newCard" element={<CreateNewCard />}></Route>
