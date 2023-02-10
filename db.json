@@ -92,6 +92,15 @@
       "isLoggedIn": true,
       "id": 13,
       "favoriteCards": []
+    },
+    {
+      "name": "almog2",
+      "email": "almog@test.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "isLoggedIn": true,
+      "id": 14,
+      "favoriteCards": []
     }
   ],
   "cards": [
