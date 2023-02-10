@@ -31,7 +31,7 @@ export async function addCardToFavorites(cardId: number) {
     let res = await axios.get(`${api}?userId=${userId}`);
     // console.log(res.data[userId]);
     if (res.data[0].favoriteCards.length) {
-      cardsArr.push(res.data[0].favoriteCards);
+      cardsArr.push(...res.data[0].favoriteCards);
     }
     cardsArr.push(cardId);
 

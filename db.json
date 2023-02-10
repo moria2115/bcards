@@ -6,8 +6,12 @@
       "password": "12345678",
       "isBusiness": false,
       "isLoggedIn": true,
-      "id": 14,
-      "favoriteCards": [4]
+      "id": 1,
+      "favoriteCards": [
+        2,
+        3,
+        6
+      ]
     },
     {
       "name": "rami",
@@ -15,14 +19,14 @@
       "password": "12345678",
       "isBusiness": true,
       "isLoggedIn": true,
-      "id": 15,
+      "id": 2,
       "favoriteCards": []
     }
   ],
   "cards": [
     {
       "id": 1,
-      "userId": 1,
+      "userId": 2,
       "name": "Hackeru",
       "description": "HackerU is an Israeli training company in the field of computing and information technology.",
       "website": "www.hackeru.com",
@@ -38,7 +42,7 @@
       "address": "השקמה 3 תל אביב",
       "image": "https://upload.wikimedia.org/wikipedia/he/7/7a/RAMILEVI.png",
       "id": 2,
-      "userId": 4
+      "userId": 2
     },
     {
       "name": "Apple",
@@ -48,7 +52,7 @@
       "address": "1 Apple Park Way, Cupertino, California, U.S.",
       "image": "https://www.apple.com/newsroom/images/default/apple-logo-og.jpg?202302091652",
       "id": 3,
-      "userId": 4
+      "userId": 2
     },
     {
       "name": "Samsung",
@@ -58,7 +62,7 @@
       "address": "Samsung Digital City, Samsungno 129, Maetan-dong, Yeongtong District, Suwon, South Korea",
       "image": "https://images.samsung.com/is/image/samsung/assets/us/about-us/brand/logo/mo/360_197_1.png?$FB_TYPE_B_PNG$",
       "id": 4,
-      "userId": 4
+      "userId": 2
     },
     {
       "name": "Xiaomi",
@@ -68,7 +72,7 @@
       "address": "Haidian District, China",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg",
       "id": 5,
-      "userId": 4
+      "userId": 2
     },
     {
       "name": "TOYOTA",
@@ -78,7 +82,7 @@
       "address": "Toyota City, Aichi, Japan",
       "image": "https://serviced.co.il/wp-content/uploads/2021/08/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94.jpg",
       "id": 6,
-      "userId": 4
+      "userId": 2
     },
     {
       "name": "Facebook",
@@ -88,7 +92,7 @@
       "address": "Menlo Park, California",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1920px-2021_Facebook_icon.svg.png",
       "id": 7,
-      "userId": 4
+      "userId": 2
     }
   ]
 }
