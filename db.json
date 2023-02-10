@@ -101,6 +101,15 @@
       "isLoggedIn": true,
       "id": 14,
       "favoriteCards": []
+    },
+    {
+      "name": "rami",
+      "email": "rami@test.com",
+      "password": "12345678",
+      "isBusiness": true,
+      "isLoggedIn": true,
+      "id": 15,
+      "favoriteCards": []
     }
   ],
   "cards": [

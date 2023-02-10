@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import SignIn from "./components/SignIn";
 import Home from "./components/Home";
 import About from "./components/About";
 import { ToastContainer } from "react-toastify";

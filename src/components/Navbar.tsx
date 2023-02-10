@@ -35,13 +35,12 @@ const Navbar: FunctionComponent<NavbarProps> = ({}) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item mx-3">
-                <NavLink className="nav-link text-primary" to="/signin">
-                  Sign in
-                </NavLink>
-              </li>
-              <li className="nav-item mx-3">
-                <NavLink className="nav-link text-primary" to="/signup">
-                  Sign up
+                <NavLink
+                  className="nav-link text-primary"
+                  aria-current="page"
+                  to="/"
+                >
+                  Home
                 </NavLink>
               </li>
               <li className="nav-item mx-3">
@@ -62,6 +61,20 @@ const Navbar: FunctionComponent<NavbarProps> = ({}) => {
                   Business Cards
                 </NavLink>
               </li>
+              {!UserCtx.userctx.isLoggedIn && (
+                <>
+                  <li className="nav-item mx-3">
+                    <NavLink className="nav-link text-primary" to="/signin">
+                      Sign in
+                    </NavLink>
+                  </li>
+                  <li className="nav-item mx-3">
+                    <NavLink className="nav-link text-primary" to="/signup">
+                      Sign up
+                    </NavLink>
+                  </li>
+                </>
+              )}
               {UserCtx.userctx.isLoggedIn && (
                 <>
                   <li className="nav-item mx-3">
@@ -73,22 +86,41 @@ const Navbar: FunctionComponent<NavbarProps> = ({}) => {
                       Profile
                     </NavLink>
                   </li>
-                  
-                  <li className="nav-item mx-3">
-                    <NavLink className="nav-link text-primary" to="/myCards">
-                      My Cards
-                    </NavLink>
-                  </li>
-                  <li className="nav-item mx-3">
-                    <NavLink
-                      className="nav-link text-primary"
-                      to="/favoriteCards"
-                    >
-                      Favorite Cards
-                    </NavLink>
-                  </li>
+                  {!UserCtx.userctx.isBusiness && (
+                    <>
+                      <li className="nav-item mx-3">
+                        <NavLink
+                          className="nav-link text-primary"
+                          to="/favoriteCards"
+                        >
+                          Favorite Cards
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
+                  {UserCtx.userctx.isBusiness && (
+                    <>
+                      <li className="nav-item mx-3">
+                        <NavLink
+                          className="nav-link text-primary"
+                          to="/myCards"
+                        >
+                          My Cards
+                        </NavLink>
+                      </li>
+                      <li className="nav-item mx-3">
+                        <NavLink
+                          className="nav-link text-primary"
+                          to="/newCard"
+                        >
+                          Create New Card
+                        </NavLink>
+                      </li>
+                    </>
+                  )}
                 </>
               )}
+
               <li className="nav-item mx-3">
                 <NavLink
                   className="nav-link text-primary"
@@ -98,30 +130,27 @@ const Navbar: FunctionComponent<NavbarProps> = ({}) => {
                   Contact Us
                 </NavLink>
               </li>
-              <li className="nav-item mx-3">
-                <NavLink className="nav-link text-primary" to="/newCard">
-                  Create New Card
-                </NavLink>
-              </li>
             </ul>
             {UserCtx.userctx.isLoggedIn && (
-              <form className="d-flex" role="search">
-                <button
-                  className="btn btn-outline-success"
-                  onClick={() => {
-                    UserCtx.changeUser({
-                      ...UserCtx.userctx,
-                      isLoggedIn: false,
-                    });
+              <>
+                <form className="d-flex" role="search">
+                  <button
+                    className="btn btn-outline-success"
+                    onClick={() => {
+                      UserCtx.changeUser({
+                        ...UserCtx.userctx,
+                        isLoggedIn: false,
+                      });
 
-                    sessionStorage.removeItem("userId");
-                    successMsg("See you soon...");
-                    navigate("/");
-                  }}
-                >
-                  Logout
-                </button>
-              </form>
+                      sessionStorage.removeItem("userId");
+                      successMsg("See you soon...");
+                      navigate("/");
+                    }}
+                  >
+                    Logout
+                  </button>
+                </form>
+              </>
             )}
           </div>
         </div>
