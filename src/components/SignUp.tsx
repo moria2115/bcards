@@ -26,13 +26,13 @@ const SignUp: FunctionComponent<SignUpProps> = ({}) => {
               className="form-check-label"
               htmlFor="flexSwitchCheckDefault"
             >
-              I'm a Business owner
+              <i className="fa-solid fa-suitcase"></i> I'm a Business owner
             </label>
           </div>
           <SignUpUser isBusiness={isBusiness} />
         </div>
 
-        <Link to="/">Already have a user? Login here</Link>
+        <Link to="/signIn">Already have a user? Sign In here</Link>
       </div>
     </>
   );

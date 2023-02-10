@@ -98,7 +98,7 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({ isBusiness }) => {
           className="btn btn-secondary w-100 my-3"
           disabled={!formik.dirty || !formik.isValid}
         >
-          Register
+          <i className="fa-solid fa-user-plus"></i> Sign Up
         </button>
       </form>
     </>

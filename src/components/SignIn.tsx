@@ -75,10 +75,10 @@ const SignIn: FunctionComponent<SignInProps> = () => {
             className="btn w-100 my-3"
             disabled={!formik.dirty || !formik.isValid}
           >
-            Login
+            <i className="fa-solid fa-arrow-right-to-bracket"></i> Sign In
           </button>
         </form>
-        <Link to="/register">New user? Register here</Link>
+        <Link to="/signUp">New user? Sign Up here</Link>
       </div>
     </>
   );

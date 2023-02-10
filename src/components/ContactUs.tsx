@@ -87,7 +87,7 @@ const ContactUs: FunctionComponent<ContactUsProps> = () => {
                 className="btn w-100 my-3"
                 disabled={!formik.dirty || !formik.isValid}
               >
-                Submit
+                <i className="fa-sharp fa-solid fa-paper-plane"></i> Submit
               </button>
             </form>
           </div>
