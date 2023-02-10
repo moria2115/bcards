@@ -1,108 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Moria Mizrachi",
-      "email": "moria2115@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "favoriteCards": []
-    },
-    {
-      "name": "Held",
-      "email": "held@gmail.com",
-      "password": "12345678",
-      "isBusiness": true,
-      "id": 4
-    },
-    {
-      "name": "almog",
-      "email": "almog@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "id": 5,
-      "favoriteCards": [
-        2
-      ]
-    },
-    {
-      "name": "mor",
-      "email": "mor@test.com",
-      "password": "12345678",
-      "id": 6,
-      "favoriteCards": []
-    },
-    {
-      "name": "aviv",
-      "email": "aviv@gmail.com",
-      "password": "12345678",
-      "id": 7,
-      "favoriteCards": []
-    },
-    {
-      "name": "lola",
-      "email": "lola@gmail.com",
-      "password": "12345678",
-      "isBusiness": true,
-      "isLoggedIn": true,
-      "id": 8,
-      "favoriteCards": []
-    },
-    {
-      "name": "aviv55",
-      "email": "aviv777@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "isLoggedIn": true,
-      "id": 9,
-      "favoriteCards": []
-    },
-    {
-      "name": "cxvxcv",
-      "email": "xcvxcv@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "isLoggedIn": true,
-      "id": 10,
-      "favoriteCards": []
-    },
-    {
-      "name": "12345",
-      "email": "12345@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "isLoggedIn": true,
-      "id": 11,
-      "favoriteCards": []
-    },
-    {
-      "name": "aviv45",
-      "email": "234@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "isLoggedIn": true,
-      "id": 12,
-      "favoriteCards": []
-    },
-    {
-      "name": "adsfds",
-      "email": "sdfsd@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "isLoggedIn": true,
-      "id": 13,
-      "favoriteCards": []
-    },
-    {
       "name": "almog2",
       "email": "almog@test.com",
       "password": "12345678",
       "isBusiness": false,
       "isLoggedIn": true,
       "id": 14,
-      "favoriteCards": [
-        4
-      ]
+      "favoriteCards": [4]
     },
     {
       "name": "rami",
@@ -141,7 +46,7 @@
       "website": "https://www.apple.com/",
       "phone": "1-800-MY-APPLE",
       "address": "1 Apple Park Way, Cupertino, California, U.S.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1200px-Apple_logo_black.svg.png",
+      "image": "https://www.apple.com/newsroom/images/default/apple-logo-og.jpg?202302091652",
       "id": 3,
       "userId": 4
     },
@@ -173,6 +78,16 @@
       "address": "Toyota City, Aichi, Japan",
       "image": "https://serviced.co.il/wp-content/uploads/2021/08/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94.jpg",
       "id": 6,
+      "userId": 4
+    },
+    {
+      "name": "Facebook",
+      "description": "online social media and social networking service",
+      "website": "https://facebook.com",
+      "phone": "08-9328286",
+      "address": "Menlo Park, California",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1920px-2021_Facebook_icon.svg.png",
+      "id": 7,
       "userId": 4
     }
   ]

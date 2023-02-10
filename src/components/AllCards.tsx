@@ -3,7 +3,7 @@ import Card from "../interfaces/Card";
 import { getAllCards } from "../services/cardsService";
 import { successMsg } from "../services/feebacks";
 import { addCardToFavorites } from "../services/usersService";
-// import "../css/cards.css";
+import "../css/cards.css";
 
 interface AllCardsProps {}
 
@@ -26,18 +26,21 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
           <div className="row">
             {cards.map((card: Card) => (
               <div
-                className="card border mx-auto"
-                style={{ width: "18rem" }}
+                className="card border mx-2 my-3"
+                style={{ width: "16rem" }}
                 key={card.id}
               >
-                <img
-                  src={card.image}
-                  className="card-img-top"
-                  alt={card.name}
-                  style={{ height: "10rem" }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{card.name}</h5>
+                <div className="cardImg">
+                  <img
+                    src={card.image}
+                    className="card-img-top p-2 mt-3 mx-auto"
+                    alt={card.name}
+                    style={{ width: "8rem" }}
+                  />
+                </div>
+
+                <div className="card-body align-middle">
+                  <h5 className="card-title text-center">{card.name}</h5>
                   <p className="card-text">{card.description}</p>
                 </div>
                 <ul className="list-group list-group-flush">

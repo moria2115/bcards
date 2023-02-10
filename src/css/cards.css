@@ -1,3 +1,25 @@
-/* .card {
-    border: 1px solid #000
+.cardImg {
+    height: 8rem;
+    margin: auto;
+}
+
+/* img {
+    object-position: center;
+    object-fit: contain;
+    overflow: hidden;
 } */
+
+.card {
+    border: 1px solid #000;
+    /* background-color: rgba(156, 184, 221, 0.5); */
+    color: #2199ea;
+}
+
+.card:hover {
+    transform: translate3D(0, -1px, 0) scale(1.03);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.card li {
+    color: #2199ea;
+}
