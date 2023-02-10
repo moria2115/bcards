@@ -100,7 +100,9 @@
       "isBusiness": false,
       "isLoggedIn": true,
       "id": 14,
-      "favoriteCards": []
+      "favoriteCards": [
+        4
+      ]
     },
     {
       "name": "rami",

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Card from "../interfaces/Card";
 import User from "../interfaces/User";
 
 const api = process.env.REACT_APP_API + "/users" || "";
@@ -19,17 +20,20 @@ export function getUserById(id: number) {
 
 export async function addCardToFavorites(cardId: number) {
   let cardsArr: number[] = [];
-  let userId: number = JSON.parse(
-    sessionStorage.getItem("userData") as string
-  ).userId;
 
   try {
-    let res = await axios.get(`${api}?userId=${userId}`);
-    cardsArr = res.data[0].favoriteCards;
-    console.log(cardsArr);
+    let userId: number = await JSON.parse(
+      sessionStorage.getItem("userId") as string
+    );
 
+    if (!userId) return;
+
+    let res = await axios.get(`${api}?userId=${userId}`);
+    // console.log(res.data[userId]);
+    if (res.data[0].favoriteCards.length) {
+      cardsArr.push(res.data[0].favoriteCards);
+    }
     cardsArr.push(cardId);
-    console.log(cardsArr);
 
     return axios.patch(`${api}/${userId}`, { favoriteCards: cardsArr });
   } catch (error) {
