@@ -12,6 +12,12 @@ const Home: FunctionComponent<HomeProps> = () => {
         <div className="row">
           <div className="col-md-7 my-auto">
             <h3 className="display-3">Create your own business card easily</h3>
+            <p>
+              Thinking of ways to make a perfect first impression with clients?
+              Business cards are a great way to start. Design a beautiful
+              business card in VistaCreate and order prints of it right from the
+              editor.
+            </p>
             <Link className="btn btn-primary mx-2 mt-3" to={"/signIn"}>
               Sign In
             </Link>

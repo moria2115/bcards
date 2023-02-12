@@ -38,22 +38,24 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
                     style={{ width: "8rem" }}
                   />
                 </div>
-
                 <div className="card-body align-middle">
                   <h5 className="card-title text-center">{card.name}</h5>
                   <p className="card-text">{card.description}</p>
                 </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
+                <div className="container">
+                  <span>
                     <i className="fa-solid fa-phone"></i> {card.phone}
-                  </li>
-                  <li className="list-group-item">
+                  </span>
+                  <hr />
+                  <span>
                     <i className="fa-solid fa-location-pin"></i> {card.address}
-                  </li>
-                  <li className="list-group-item">
+                  </span>
+                  <hr />
+                  <span>
                     <i className="fa-solid fa-globe"></i> {card.website}
-                  </li>
-                </ul>
+                  </span>
+                </div>
+
                 <button
                   className="btn btn-outline-warning my-2 w-100 "
                   onClick={() => {

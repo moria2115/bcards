@@ -1,8 +1,9 @@
 import axios from "axios";
 import { FunctionComponent, useEffect, useState } from "react";
-import Card from "../interfaces/Card";
 import DeleteCardModal from "./DeleteCardModal";
 import UpdateCardModal from "./UpdateCardModal";
+import Card from "../interfaces/Card";
+import "../css/cards.css";
 
 interface MyCardsProps {}
 

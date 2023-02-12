@@ -11,15 +11,28 @@
 
 .card {
     border: 1px solid #000;
-    /* background-color: rgba(156, 184, 221, 0.5); */
+    background-color: rgba(155, 163, 174, 0.5);
     color: #2199ea;
 }
 
 .card:hover {
     transform: translate3D(0, -1px, 0) scale(1.03);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: rgba(155, 163, 174, 0.8);
+}
+
+.aboutCard {
+    border: none;
+    background-color: transparent;
+}
+
+.aboutCard:hover {
+    transform: none;
+    background-color: transparent;
+    box-shadow: none
 }
 
 .card li {
     color: #2199ea;
+    background-color: rgba(155, 163, 174, 0.5);
 }
