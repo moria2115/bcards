@@ -25,7 +25,7 @@ const ContactUs: FunctionComponent<ContactUsProps> = () => {
   return (
     <>
       <div className="container mt-3 text-center">
-        <h3 className="display-3">CONTACT US</h3>
+        <h1 className="display-3">CONTACT US</h1>
 
         <div className="row">
           <div className="col-md-6">

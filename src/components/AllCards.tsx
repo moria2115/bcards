@@ -23,11 +23,11 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
       </h1>
       {cards.length ? (
         <div className="container mx-auto">
-          <div className="row">
+          <div className="row ">
             {cards.map((card: Card) => (
               <div
-                className="card border mx-2 my-3"
-                style={{ width: "16rem" }}
+                className="card border col-md-3  m-1"
+                style={{ width: "20rem" }}
                 key={card.id}
               >
                 <div className="cardImg">

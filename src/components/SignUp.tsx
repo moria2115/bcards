@@ -12,7 +12,7 @@ const SignUp: FunctionComponent<SignUpProps> = ({}) => {
   return (
     <>
       <div className="container mt-3 col-md-4 text-center">
-        <h3 className="display-3 my-3">SIGN UP</h3>
+        <h1 className="display-3 my-3">SIGN UP</h1>
         <div>
           <div className="form-check form-switch">
             <input

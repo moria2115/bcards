@@ -35,7 +35,7 @@ const SignIn: FunctionComponent<SignInProps> = () => {
   return (
     <>
       <div className="container mt-3 col-md-4 text-center">
-        <h3 className="display-3">SIGN IN</h3>
+        <h1 className="display-3">SIGN IN</h1>
         <form onSubmit={formik.handleSubmit}>
           <div className="form-floating mb-3">
             <input
