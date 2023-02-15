@@ -7,5 +7,5 @@ export default interface User {
   password: string;
   isBusiness?: boolean;
   isLoggedIn?: boolean;
-  favoriteCards?: Card[];
+  favoriteCards?: number[];
 }

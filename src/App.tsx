@@ -45,8 +45,7 @@ export function App() {
 
         getUserById(userId)
           .then((res) => {
-            setUser(res.data);
-            // console.log(res.data);
+            setUser({ ...res.data, isLoggedIn: true });
           })
           .catch((err) => console.log(err));
       } catch (error) {

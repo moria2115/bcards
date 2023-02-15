@@ -18,24 +18,12 @@ export function getUserById(id: number) {
   return axios.get(`${api}/${id}`);
 }
 
-export async function addCardToFavorites(cardId: number) {
-  let cardsArr: number[] = [];
-
+export async function addCardToFavorites(cardId: number, user: User) {
+  let favoriteCards = user.favoriteCards?.length
+    ? [...user.favoriteCards, cardId]
+    : [cardId];
   try {
-    let userId: number = await JSON.parse(
-      sessionStorage.getItem("userId") as string
-    );
-
-    if (!userId) return;
-
-    let res = await axios.get(`${api}?userId=${userId}`);
-    // console.log(res.data[userId]);
-    if (res.data[0].favoriteCards.length) {
-      cardsArr.push(...res.data[0].favoriteCards);
-    }
-    cardsArr.push(cardId);
-
-    return axios.patch(`${api}/${userId}`, { favoriteCards: cardsArr });
+    return axios.patch(`${api}/${user.id}`, { favoriteCards });
   } catch (error) {
     console.log(error);
   }

@@ -1,14 +1,17 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import Card from "../interfaces/Card";
 import { getAllCards } from "../services/cardsService";
 import { successMsg } from "../services/feebacks";
 import { addCardToFavorites } from "../services/usersService";
 import "../css/cards.css";
+import { UserContext } from "../App";
+import User from "../interfaces/User";
 
 interface AllCardsProps {}
 
 const AllCards: FunctionComponent<AllCardsProps> = () => {
   let [cards, setCards] = useState<Card[]>([]);
+  let UserCtx = useContext(UserContext);
 
   useEffect(() => {
     getAllCards()
@@ -57,14 +60,30 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
                 </div>
 
                 <button
-                  className="btn btn-outline-warning my-2 w-100 "
+                  className={`btn my-2 w-100 ${
+                    UserCtx.userctx.favoriteCards?.includes(card.id as number)
+                      ? "btn-warning"
+                      : "btn-outline-warning"
+                  } `}
                   onClick={() => {
-                    addCardToFavorites(card.id as number)
-                      .then(() =>
-                        successMsg(`Card ${card.name} added to favorites`)
-                      )
+                    addCardToFavorites(
+                      card.id as number,
+                      UserCtx.userctx as User
+                    )
+                      .then((res) => {
+                        if (res) {
+                          UserCtx.changeUser({
+                            ...UserCtx.userctx,
+                            ...res.data,
+                          });
+                          successMsg(`Card ${card.name} added to favorites`);
+                        }
+                      })
                       .catch((err) => console.log(err));
                   }}
+                  disabled={UserCtx.userctx.favoriteCards?.includes(
+                    card.id as number
+                  )}
                 >
                   <i className="fa-regular fa-heart"></i>
                 </button>

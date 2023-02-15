@@ -5,12 +5,13 @@
       "email": "almog@test.com",
       "password": "12345678",
       "isBusiness": false,
-      "isLoggedIn": true,
+      "isLoggedIn": false,
       "id": 1,
       "favoriteCards": [
         2,
         3,
-        6
+        6,
+        3
       ]
     },
     {
@@ -21,6 +22,49 @@
       "isLoggedIn": true,
       "id": 2,
       "favoriteCards": []
+    },
+    {
+      "name": "business",
+      "email": "business@gmail.com",
+      "password": "12345678",
+      "isBusiness": true,
+      "isLoggedIn": true,
+      "id": 3,
+      "favoriteCards": []
+    },
+    {
+      "name": "avivmiz",
+      "email": "avivmiz@gmail.com",
+      "password": "12345678",
+      "isBusiness": true,
+      "id": 4,
+      "favoriteCards": []
+    },
+    {
+      "name": "avivmiz1",
+      "email": "avivmiz1@gmail.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "id": 5,
+      "favoriteCards": [
+        3,
+        1,
+        2,
+        7,
+        6,
+        5,
+        4
+      ]
+    },
+    {
+      "name": "mor",
+      "email": "mor@gmail.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "id": 6,
+      "favoriteCards": [
+        2
+      ]
     }
   ],
   "cards": [

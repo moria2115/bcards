@@ -1,7 +1,11 @@
 import axios from "axios";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
+import { UserContext } from "../App";
+// import { UserContext } from "../App";
 import Card from "../interfaces/Card";
+// import { getCardsById } from "../services/cardsService";
 import DeleteCardModal from "./DeleteCardModal";
+import "../css/cards.css";
 
 interface FavoritesCardsProps {}
 
@@ -10,6 +14,7 @@ const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
   let [cardId, setCardId] = useState<number>(0);
   let [cardsChange, setCardsChange] = useState<boolean>(false);
   let [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
+  let UserCtx = useContext(UserContext);
 
   useEffect(() => {
     getFavoriteCards();
@@ -21,18 +26,19 @@ const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
 
   let getFavoriteCards = async () => {
     try {
-      let userId: number = JSON.parse(
-        sessionStorage.getItem("userData") as string
-      ).userId;
+      let cardsIds = UserCtx.userctx.favoriteCards;
+      console.log(UserCtx.userctx);
 
       let cardsRes = await axios.get(
-        `${process.env.REACT_APP_API}/users?userId=${userId}`
+        `${process.env.REACT_APP_API}/cards?cardId=${cardsIds}`
       );
-      console.log(cardsRes);
+      console.log(cardsRes.data);
 
       let cardsArr: any = cardsRes.data;
-
-      setFavoriteCards(cardsArr);
+      let userCards = cardsArr.filter((item: any) =>
+        cardsIds?.includes(item.id)
+      );
+      setFavoriteCards(userCards);
     } catch (error) {
       console.log(error);
     }
@@ -40,10 +46,11 @@ const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
 
   return (
     <>
-      {favoriteCards.length ? (
+      <h1>FAVORITE CARDS</h1>
+      {favoriteCards?.length ? (
         <div className="container">
           <div className="row">
-            {favoriteCards.map((card: Card) => (
+            {favoriteCards?.map((card: Card) => (
               <div
                 key={card.id}
                 className="card ms-1"
@@ -62,7 +69,7 @@ const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
                   <p className="text-success">{card.address}</p>
                   <p className="text-success">{card.website}</p>
                   <button
-                    className="btn btn-danger mx-2"
+                    className="btn btn-danger mx-2 w-100"
                     onClick={() => {
                       setOpenDeleteModal(true);
                       setCardId(card.id as number);

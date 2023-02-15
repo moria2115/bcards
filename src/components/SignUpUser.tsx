@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext, useEffect } from "react";
+import { FunctionComponent, useContext } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
@@ -22,14 +22,14 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({ isBusiness }) => {
       password: yup.string().required().min(8),
     }),
     onSubmit: (values: User) => {
-      const newObj = { ...values, isBusiness: isBusiness, isLoggedIn: true };
+      const newObj = { ...values, isBusiness, isLoggedIn: true };
 
       UserCtx.changeUser({ ...newObj, favoriteCards: [] });
 
-      addNewUser(newObj)
+      addNewUser({ ...values, isBusiness })
         .then((res) => {
           createUserFavorites(res.data.id);
-          navigate("/");
+          navigate("/cards");
 
           sessionStorage.setItem("userId", JSON.stringify(res.data.id));
 

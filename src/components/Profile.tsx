@@ -1,4 +1,5 @@
 import { FunctionComponent, useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../App";
 
 interface ProfileProps {}
@@ -13,7 +14,9 @@ const Profile: FunctionComponent<ProfileProps> = () => {
         Hello, {USerCtx.userctx?.name ?? "Stranger"}
       </h3>
 
-      <button className="btn btn-primary">My Cards</button>
+      <Link to={"/favoriteCards"} className="btn btn-primary">
+        My Cards
+      </Link>
     </>
   );
 };

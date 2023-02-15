@@ -23,9 +23,10 @@ const SignIn: FunctionComponent<SignInProps> = () => {
       checkUser(values)
         .then((res) => {
           if (res.data.length) {
-            UserCtx.changeUser({ ...res.data, isLoggedIn: true });
+            const user = res.data[0];
+            UserCtx.changeUser({ ...user, isLoggedIn: true });
             sessionStorage.setItem("userId", JSON.stringify(res.data[0].id));
-            navigate("/");
+            navigate("/cards");
             successMsg("Youe logged in Successfully!");
           } else errorMsg("Wrong Email or Password!");
         })
