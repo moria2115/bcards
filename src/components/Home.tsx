@@ -18,6 +18,7 @@ const Home: FunctionComponent<HomeProps> = () => {
             </h3>
             <p className="homeHeader">
               Thinking of ways to make a perfect first impression with clients?
+              <br />
               Business cards are a great way to start. Design a beautiful
               business card in VistaCreate and order prints of it right from the
               editor.
