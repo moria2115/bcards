@@ -1,76 +1,25 @@
 {
   "users": [
     {
-      "name": "almog2",
-      "email": "almog@test.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "isLoggedIn": false,
-      "id": 1,
-      "favoriteCards": [
-        2,
-        3,
-        6,
-        3
-      ]
-    },
-    {
-      "name": "rami",
-      "email": "rami@test.com",
+      "name": "Business",
+      "email": "business@test.com",
       "password": "12345678",
       "isBusiness": true,
-      "isLoggedIn": true,
+      "id": 1
+    },
+    {
+      "name": "user",
+      "email": "user@test.com",
+      "password": "12345678",
+      "isBusiness": false,
       "id": 2,
-      "favoriteCards": []
-    },
-    {
-      "name": "business",
-      "email": "business@gmail.com",
-      "password": "12345678",
-      "isBusiness": true,
-      "isLoggedIn": true,
-      "id": 3,
-      "favoriteCards": []
-    },
-    {
-      "name": "avivmiz",
-      "email": "avivmiz@gmail.com",
-      "password": "12345678",
-      "isBusiness": true,
-      "id": 4,
-      "favoriteCards": []
-    },
-    {
-      "name": "avivmiz1",
-      "email": "avivmiz1@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "id": 5,
-      "favoriteCards": [
-        3,
-        1,
-        2,
-        7,
-        6,
-        5,
-        4
-      ]
-    },
-    {
-      "name": "mor",
-      "email": "mor@gmail.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "id": 6,
-      "favoriteCards": [
-        2
-      ]
+      "favoriteCards": [2, 1, 5]
     }
   ],
   "cards": [
     {
       "id": 1,
-      "userId": 2,
+      "userId": 1,
       "name": "Hackeru",
       "description": "HackerU is an Israeli training company in the field of computing and information technology.",
       "website": "www.hackeru.com",
@@ -79,14 +28,14 @@
       "image": "https://www.hackeru.co.il/co/assets/images/hackeru_logo.png"
     },
     {
-      "name": "Rami levy",
-      "description": "Supermarket",
-      "website": "rami-levy.co.il",
-      "phone": "03986689",
-      "address": "השקמה 3 תל אביב",
-      "image": "https://upload.wikimedia.org/wikipedia/he/7/7a/RAMILEVI.png",
-      "id": 2,
-      "userId": 2
+      "name": "Facebook",
+      "description": "online social media and social networking service",
+      "website": "https://facebook.com",
+      "phone": "08-9328286",
+      "address": "Menlo Park, California",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1920px-2021_Facebook_icon.svg.png",
+      "id": 3,
+      "userId": 1
     },
     {
       "name": "Apple",
@@ -95,7 +44,7 @@
       "phone": "1-800-MY-APPLE",
       "address": "1 Apple Park Way, Cupertino, California, U.S.",
       "image": "https://www.apple.com/newsroom/images/default/apple-logo-og.jpg?202302091652",
-      "id": 3,
+      "id": 4,
       "userId": 2
     },
     {
@@ -105,7 +54,7 @@
       "phone": "1-800-30-400",
       "address": "Samsung Digital City, Samsungno 129, Maetan-dong, Yeongtong District, Suwon, South Korea",
       "image": "https://images.samsung.com/is/image/samsung/assets/us/about-us/brand/logo/mo/360_197_1.png?$FB_TYPE_B_PNG$",
-      "id": 4,
+      "id": 5,
       "userId": 2
     },
     {
@@ -115,28 +64,18 @@
       "phone": "08-6852114",
       "address": "Haidian District, China",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg",
-      "id": 5,
-      "userId": 2
-    },
-    {
-      "name": "TOYOTA",
-      "description": "Toyota strives to be a strong corporate citizen, engaging with and earning the trust of its stakeholders, and to contribute to the creation of a prosperous society through all its business operations",
-      "website": "https://global.toyota/",
-      "phone": "08-9328286",
-      "address": "Toyota City, Aichi, Japan",
-      "image": "https://serviced.co.il/wp-content/uploads/2021/08/%D7%A6%D7%95%D7%A8-%D7%A7%D7%A9%D7%A8-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%98%D7%95%D7%99%D7%95%D7%98%D7%94.jpg",
       "id": 6,
       "userId": 2
     },
     {
-      "name": "Facebook",
-      "description": "online social media and social networking service",
-      "website": "https://facebook.com",
-      "phone": "08-9328286",
-      "address": "Menlo Park, California",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1920px-2021_Facebook_icon.svg.png",
+      "name": "Harel",
+      "description": "Insurance company",
+      "website": "https://www.harel-group.co.il/Pages/default.aspx/",
+      "phone": "037549898",
+      "address": "Ramat Gan",
+      "image": "data:image/png;base64,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",
       "id": 7,
-      "userId": 2
+      "userId": 1
     }
   ]
 }

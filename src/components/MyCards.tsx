@@ -1,9 +1,10 @@
 import axios from "axios";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import DeleteCardModal from "./DeleteCardModal";
 import UpdateCardModal from "./UpdateCardModal";
 import Card from "../interfaces/Card";
 import "../css/cards.css";
+import { UserContext } from "../App";
 
 interface MyCardsProps {}
 
@@ -14,6 +15,7 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
   let [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
   let [openUpdateModal, setOpenUpdateModal] = useState<boolean>(false);
 
+  let UserCtx = useContext(UserContext);
   useEffect(() => {
     getMyCards();
   }, [cardsChange]);
@@ -24,9 +26,8 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
 
   let getMyCards = async () => {
     try {
-      let userId: number = JSON.parse(
-        sessionStorage.getItem("userData") as string
-      ).userId;
+      if (!UserCtx.userctx.id) return;
+      let userId: number = UserCtx.userctx.id;
 
       let cardsRes = await axios.get(
         `${process.env.REACT_APP_API}/cards?userId=${userId}`
@@ -47,41 +48,53 @@ const MyCards: FunctionComponent<MyCardsProps> = () => {
           <div className="row">
             {myCards.map((card: Card) => (
               <div
-                key={card.id}
-                className="card ms-1"
+                className="card border col-md-3  m-2"
                 style={{ width: "18rem" }}
+                key={card.id}
               >
-                <img
-                  src={card.image}
-                  className="card-img-top"
-                  alt={card.name}
-                  style={{ height: "100%" }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{card.name}</h5>
-                  <p className="card-text">{card.description}</p>
-                  <p className="text-success">{card.phone}</p>
-                  <p className="text-success">{card.address}</p>
-                  <p className="text-success">{card.website}</p>
-                  <button
-                    className="btn btn-warning"
-                    onClick={() => {
-                      setOpenUpdateModal(true);
-                      setCardId(card.id as number);
-                    }}
-                  >
-                    <i className="fa-solid fa-pen-to-square"></i>
-                  </button>
-                  <button
-                    className="btn btn-danger mx-2"
-                    onClick={() => {
-                      setOpenDeleteModal(true);
-                      setCardId(card.id as number);
-                    }}
-                  >
-                    <i className="fa-solid fa-trash"></i>
-                  </button>
+                <div className="cardImg">
+                  <img
+                    src={card.image}
+                    className="card-img-top p-2 mt-3 mx-auto"
+                    alt={card.name}
+                    style={{ width: "8rem" }}
+                  />
                 </div>
+                <div className="card-body align-middle">
+                  <h5 className="card-title text-center">{card.name}</h5>
+                  <p className="card-text">{card.description}</p>
+                </div>
+                <div className="container">
+                  <span>
+                    <i className="fa-solid fa-phone"></i> {card.phone}
+                  </span>
+                  <hr />
+                  <span>
+                    <i className="fa-solid fa-location-pin"></i> {card.address}
+                  </span>
+                  <hr />
+                  <span>
+                    <i className="fa-solid fa-globe"></i> {card.website}
+                  </span>
+                </div>
+                <button
+                  className="btn btn-warning m-2"
+                  onClick={() => {
+                    setOpenUpdateModal(true);
+                    setCardId(card.id as number);
+                  }}
+                >
+                  <i className="fa-solid fa-pen-to-square"></i> Edit
+                </button>
+                <button
+                  className="btn btn-danger m-2"
+                  onClick={() => {
+                    setOpenDeleteModal(true);
+                    setCardId(card.id as number);
+                  }}
+                >
+                  <i className="fa-solid fa-trash"></i> Delete
+                </button>
               </div>
             ))}
           </div>

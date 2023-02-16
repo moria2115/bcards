@@ -39,7 +39,11 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li className="nav-item mx-3">
+                <li
+                  className="nav-item mx-3"
+                  //   data-bs-toggle="collapse"
+                  //   data-bs-target=".navbar-collapse.show"
+                >
                   <NavLink
                     className="nav-link text-primary"
                     aria-current="page"

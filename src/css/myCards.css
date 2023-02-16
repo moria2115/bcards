@@ -14,14 +14,3 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     background-color: rgba(194, 213, 241, 0.8);
 }
-
-.aboutCard {
-    border: none;
-    background-color: transparent;
-}
-
-.aboutCard:hover {
-    transform: none;
-    background-color: transparent;
-    box-shadow: none
-}

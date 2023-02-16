@@ -3,7 +3,6 @@ import Card from "../interfaces/Card";
 
 const api: string = process.env.REACT_APP_API + "/cards" || "";
 
-// add card
 export function addCard(newCard: Card) {
   return axios.post(api, newCard);
 }

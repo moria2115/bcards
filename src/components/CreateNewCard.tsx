@@ -1,7 +1,8 @@
 import { useFormik } from "formik";
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { UserContext } from "../App";
 import Card from "../interfaces/Card";
 import { addCard } from "../services/cardsService";
 import { successMsg } from "../services/feebacks";
@@ -9,6 +10,7 @@ import { successMsg } from "../services/feebacks";
 interface CreateNewCardProps {}
 
 const CreateNewCard: FunctionComponent<CreateNewCardProps> = () => {
+  let UserCtx = useContext(UserContext);
   let navigate = useNavigate();
   let formik = useFormik({
     initialValues: {
@@ -28,12 +30,15 @@ const CreateNewCard: FunctionComponent<CreateNewCardProps> = () => {
       website: yup.string().required().min(5),
     }),
     onSubmit: (values: Card) => {
+      values.userId = UserCtx.userctx.id;
+      console.log(values);
+
       addCard({
         ...values,
-        userId: JSON.parse(sessionStorage.getItem("userData") as string).userId,
+        userId: UserCtx.userctx.id,
       })
         .then((res) => {
-          navigate("/");
+          navigate("/myCards");
           successMsg("Card added successfully");
         })
         .catch((err) => console.log(err));

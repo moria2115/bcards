@@ -28,12 +28,12 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({ isBusiness }) => {
 
       addNewUser({ ...values, isBusiness })
         .then((res) => {
-          createUserFavorites(res.data.id);
           navigate("/cards");
-
           sessionStorage.setItem("userId", JSON.stringify(res.data.id));
-
           successMsg("Youe registered Successfully!");
+          if (!isBusiness) {
+            createUserFavorites(res.data.id);
+          }
         })
         .catch((err) => console.log(err));
     },
@@ -41,6 +41,7 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({ isBusiness }) => {
 
   let createUserFavorites = (userId: number) =>
     createFavoriteCards(userId).catch((err) => console.log(err));
+
   return (
     <>
       <form onSubmit={formik.handleSubmit}>

@@ -29,8 +29,8 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
           <div className="row ">
             {cards.map((card: Card) => (
               <div
-                className="card border col-md-3  m-1"
-                style={{ width: "20rem" }}
+                className="card border col-md-3  m-2"
+                style={{ width: "18rem" }}
                 key={card.id}
               >
                 <div className="cardImg">
@@ -45,7 +45,7 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
                   <h5 className="card-title text-center">{card.name}</h5>
                   <p className="card-text">{card.description}</p>
                 </div>
-                <div className="container">
+                <div className="container mb-2">
                   <span>
                     <i className="fa-solid fa-phone"></i> {card.phone}
                   </span>
@@ -58,35 +58,47 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
                     <i className="fa-solid fa-globe"></i> {card.website}
                   </span>
                 </div>
-
-                <button
-                  className={`btn my-2 w-100 ${
-                    UserCtx.userctx.favoriteCards?.includes(card.id as number)
-                      ? "btn-warning"
-                      : "btn-outline-warning"
-                  } `}
-                  onClick={() => {
-                    addCardToFavorites(
-                      card.id as number,
-                      UserCtx.userctx as User
-                    )
-                      .then((res) => {
-                        if (res) {
-                          UserCtx.changeUser({
-                            ...UserCtx.userctx,
-                            ...res.data,
-                          });
-                          successMsg(`Card ${card.name} added to favorites`);
-                        }
-                      })
-                      .catch((err) => console.log(err));
-                  }}
-                  disabled={UserCtx.userctx.favoriteCards?.includes(
-                    card.id as number
-                  )}
-                >
-                  <i className="fa-regular fa-heart"></i>
-                </button>
+                {!UserCtx.userctx.isBusiness && (
+                  <>
+                    <button
+                      className="btn my-2 border-0"
+                      // className={`btn my-2 w-100 ${
+                      //   UserCtx.userctx.favoriteCards?.includes(card.id as number)
+                      //     ? "btn-warning"
+                      //     : "btn-outline-warning"
+                      // } `}
+                      onClick={() => {
+                        addCardToFavorites(
+                          card.id as number,
+                          UserCtx.userctx as User
+                        )
+                          .then((res) => {
+                            if (res) {
+                              UserCtx.changeUser({
+                                ...UserCtx.userctx,
+                                ...res.data,
+                              });
+                              successMsg(
+                                `Card ${card.name} added to favorites`
+                              );
+                            }
+                          })
+                          .catch((err) => console.log(err));
+                      }}
+                      disabled={UserCtx.userctx.favoriteCards?.includes(
+                        card.id as number
+                      )}
+                    >
+                      {UserCtx.userctx.favoriteCards?.includes(
+                        card.id as number
+                      ) ? (
+                        <i className="fa-solid fa-heart text-warning"></i>
+                      ) : (
+                        <i className="fa-regular fa-heart text-warning"></i>
+                      )}
+                    </button>
+                  </>
+                )}
               </div>
             ))}
           </div>
