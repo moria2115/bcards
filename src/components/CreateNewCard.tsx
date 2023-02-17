@@ -31,8 +31,6 @@ const CreateNewCard: FunctionComponent<CreateNewCardProps> = () => {
     }),
     onSubmit: (values: Card) => {
       values.userId = UserCtx.userctx.id;
-      console.log(values);
-
       addCard({
         ...values,
         userId: UserCtx.userctx.id,

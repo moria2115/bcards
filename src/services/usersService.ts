@@ -1,5 +1,4 @@
 import axios from "axios";
-import Card from "../interfaces/Card";
 import User from "../interfaces/User";
 
 const api = process.env.REACT_APP_API + "/users" || "";
@@ -19,7 +18,7 @@ export function getUserById(id: number) {
 }
 
 export async function addCardToFavorites(cardId: number, user: User) {
-  let favoriteCards = user.favoriteCards?.length
+  let favoriteCards: number[] = user.favoriteCards?.length
     ? [...user.favoriteCards, cardId]
     : [cardId];
   try {
@@ -27,6 +26,12 @@ export async function addCardToFavorites(cardId: number, user: User) {
   } catch (error) {
     console.log(error);
   }
+}
+
+export function removeFromFavorites(cardId: number, user: User) {
+  let favoriteCards = user.favoriteCards;
+  let updatedCards = favoriteCards?.filter((item: any) => item != cardId);
+  return axios.patch(`${api}/${user.id}`, { favoriteCards: updatedCards });
 }
 
 export function createFavoriteCards(userId: number) {

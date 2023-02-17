@@ -1,5 +1,6 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { Modal } from "react-bootstrap";
+import { UserContext } from "../App";
 import { deleteCard } from "../services/cardsService";
 import { successMsg } from "../services/feebacks";
 
@@ -16,6 +17,7 @@ const DeleteCardModal: FunctionComponent<DeleteCardModalProps> = ({
   onHide,
   cardId,
 }) => {
+  let UserCtx = useContext(UserContext);
   return (
     <>
       <Modal
@@ -33,6 +35,7 @@ const DeleteCardModal: FunctionComponent<DeleteCardModalProps> = ({
           <button
             className="btn btn-danger"
             onClick={() => {
+              if(UserCtx.userctx.isBusiness){
               deleteCard(cardId)
                 .then(() => {
                   onHide();
@@ -40,6 +43,9 @@ const DeleteCardModal: FunctionComponent<DeleteCardModalProps> = ({
                   refresh();
                 })
                 .catch((err) => console.log(err));
+              } else {
+                
+              }
             }}
           >
             Yes

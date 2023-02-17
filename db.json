@@ -8,12 +8,13 @@
       "id": 1
     },
     {
+      "0": 1,
       "name": "user",
       "email": "user@test.com",
       "password": "12345678",
       "isBusiness": false,
       "id": 2,
-      "favoriteCards": [2, 1, 5]
+      "favoriteCards": []
     }
   ],
   "cards": [
@@ -26,6 +27,16 @@
       "phone": "03-6135565",
       "address": "שוהם 5, רמת גן, 52521",
       "image": "https://www.hackeru.co.il/co/assets/images/hackeru_logo.png"
+    },
+    {
+      "name": "Samsung",
+      "description": "samsung is a major manufacturer of Electronic Components such as lithium-ion batteries, semiconductors, image sensors, camera modules, and displays for clients",
+      "website": "https://www.samsung.com/",
+      "phone": "1-800-30-400",
+      "address": "Samsung Digital City, Samsungno 129, Maetan-dong, Yeongtong District, Suwon, South Korea",
+      "image": "https://images.samsung.com/is/image/samsung/assets/us/about-us/brand/logo/mo/360_197_1.png?$FB_TYPE_B_PNG$",
+      "id": 2,
+      "userId": 1
     },
     {
       "name": "Facebook",
@@ -45,17 +56,7 @@
       "address": "1 Apple Park Way, Cupertino, California, U.S.",
       "image": "https://www.apple.com/newsroom/images/default/apple-logo-og.jpg?202302091652",
       "id": 4,
-      "userId": 2
-    },
-    {
-      "name": "Samsung",
-      "description": "samsung is a major manufacturer of Electronic Components such as lithium-ion batteries, semiconductors, image sensors, camera modules, and displays for clients",
-      "website": "https://www.samsung.com/",
-      "phone": "1-800-30-400",
-      "address": "Samsung Digital City, Samsungno 129, Maetan-dong, Yeongtong District, Suwon, South Korea",
-      "image": "https://images.samsung.com/is/image/samsung/assets/us/about-us/brand/logo/mo/360_197_1.png?$FB_TYPE_B_PNG$",
-      "id": 5,
-      "userId": 2
+      "userId": 1
     },
     {
       "name": "Xiaomi",
@@ -65,7 +66,7 @@
       "address": "Haidian District, China",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg",
       "id": 6,
-      "userId": 2
+      "userId": 1
     },
     {
       "name": "Harel",

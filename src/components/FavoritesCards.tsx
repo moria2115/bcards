@@ -3,20 +3,20 @@ import axios from "axios";
 import { FunctionComponent, useContext, useEffect, useState } from "react";
 import { UserContext } from "../App";
 import Card from "../interfaces/Card";
-import DeleteCardModal from "./DeleteCardModal";
+import { removeFromFavorites } from "../services/usersService";
 
 interface FavoritesCardsProps {}
 
 const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
   let [favoriteCards, setFavoriteCards] = useState<Card[]>([]);
-  let [cardId, setCardId] = useState<number>(0);
   let [cardsChange, setCardsChange] = useState<boolean>(false);
-  let [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
   let UserCtx = useContext(UserContext);
 
   useEffect(() => {
+    if (!UserCtx.userctx.id) return;
     getFavoriteCards();
-  }, [cardsChange]);
+    // eslint-disable-next-line
+  }, [cardsChange, UserCtx]);
 
   let refresh = () => {
     setCardsChange(!cardsChange);
@@ -25,11 +25,7 @@ const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
   let getFavoriteCards = async () => {
     try {
       let cardsIds = UserCtx.userctx.favoriteCards;
-
-      let cardsRes = await axios.get(
-        `${process.env.REACT_APP_API}/cards?cardId=${cardsIds}`
-      );
-
+      let cardsRes = await axios.get(`${process.env.REACT_APP_API}/cards`);
       let cardsArr: any = cardsRes.data;
       let userCards = cardsArr.filter((item: any) =>
         cardsIds?.includes(item.id)
@@ -82,8 +78,20 @@ const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
                   <button
                     className="btn btn-danger my-2 w-100"
                     onClick={() => {
-                      setOpenDeleteModal(true);
-                      setCardId(card.id as number);
+                      let id = card.id ? card.id : 0;
+                      try {
+                        removeFromFavorites(id, UserCtx.userctx).then((res) => {
+                          let newArr = res.data;
+                          setFavoriteCards(newArr);
+                          UserCtx.changeUser({
+                            ...UserCtx.userctx,
+                            ...newArr,
+                          });
+                          refresh();
+                        });
+                      } catch (error) {
+                        console.log(error);
+                      }
                     }}
                   >
                     <i className="fa-solid fa-trash"></i> Remove
@@ -95,13 +103,6 @@ const FavoritesCards: FunctionComponent<FavoritesCardsProps> = () => {
         ) : (
           <p>No Cards</p>
         )}
-
-        <DeleteCardModal
-          refresh={refresh}
-          show={openDeleteModal}
-          onHide={() => setOpenDeleteModal(false)}
-          cardId={cardId}
-        />
       </div>
     </>
   );

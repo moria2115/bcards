@@ -23,9 +23,7 @@ const SignUpUser: FunctionComponent<SignUpUserProps> = ({ isBusiness }) => {
     }),
     onSubmit: (values: User) => {
       const newObj = { ...values, isBusiness, isLoggedIn: true };
-
       UserCtx.changeUser({ ...newObj, favoriteCards: [] });
-
       addNewUser({ ...values, isBusiness })
         .then((res) => {
           navigate("/cards");

@@ -10,13 +10,13 @@ const Home: FunctionComponent<HomeProps> = () => {
   return (
     <>
       <div className="container">
-        <h1 className="homeHeader text-center display-1">WELCOME TO BCARDS</h1>
+        <h1 className="homeHeader1 text-center display-1">WELCOME TO BCARDS</h1>
         <div className="row">
           <div className="col-md-7 my-auto">
             <h3 className="homeHeader display-3">
               Create your own business card easily
             </h3>
-            <p className="homeHeader">
+            <p className="homeHeader2">
               Thinking of ways to make a perfect first impression with clients?
               <br />
               Business cards are a great way to start. Design a beautiful

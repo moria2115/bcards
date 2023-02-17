@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext, useMemo } from "react";
+import { FunctionComponent, useContext, useMemo, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 import { successMsg } from "../services/feebacks";
@@ -9,6 +9,13 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
   let UserCtx = useContext(UserContext);
 
   let navigate = useNavigate();
+
+  let handleCollapse = () => {
+    var nav = document.getElementById("navbarSupportedContent");
+    var btn = document.getElementById("close-button");
+    (nav as HTMLElement).classList.remove("show");
+    (btn as HTMLButtonElement).classList.add("collapsed");
+  };
 
   return useMemo(
     () => (
@@ -23,7 +30,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
               />
             </NavLink>
             <button
-              className="navbar-toggler"
+              className={"navbar-toggler collapsed"}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -39,15 +46,17 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li
-                  className="nav-item mx-3"
-                  //   data-bs-toggle="collapse"
-                  //   data-bs-target=".navbar-collapse.show"
-                >
+                <li className="nav-item mx-3">
                   <NavLink
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
                     className="nav-link text-primary"
                     aria-current="page"
                     to="/"
+                    onClick={() => {
+                      handleCollapse();
+                      navigate("/");
+                    }}
                   >
                     Home
                   </NavLink>
@@ -57,6 +66,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                     className="nav-link text-primary"
                     aria-current="page"
                     to="/about"
+                    onClick={() => {
+                      handleCollapse();
+                      navigate("/about");
+                    }}
                   >
                     About
                   </NavLink>
@@ -66,6 +79,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                     className="nav-link text-primary"
                     aria-current="page"
                     to="/cards"
+                    onClick={() => {
+                      handleCollapse();
+                      navigate("/cards");
+                    }}
                   >
                     Business Cards
                   </NavLink>
@@ -74,12 +91,26 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                 {!UserCtx.userctx.isLoggedIn && (
                   <>
                     <li className="nav-item mx-3">
-                      <NavLink className="nav-link text-primary" to="/signin">
+                      <NavLink
+                        className="nav-link text-primary"
+                        to="/signin"
+                        onClick={() => {
+                          handleCollapse();
+                          navigate("/signin");
+                        }}
+                      >
                         Sign in
                       </NavLink>
                     </li>
                     <li className="nav-item mx-3">
-                      <NavLink className="nav-link text-primary" to="/signup">
+                      <NavLink
+                        className="nav-link text-primary"
+                        to="/signup"
+                        onClick={() => {
+                          handleCollapse();
+                          navigate("/signup");
+                        }}
+                      >
                         Sign up
                       </NavLink>
                     </li>
@@ -93,6 +124,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                         className="nav-link text-primary"
                         aria-current="page"
                         to="/profile"
+                        onClick={() => {
+                          handleCollapse();
+                          navigate("/profile");
+                        }}
                       >
                         Profile
                       </NavLink>
@@ -104,6 +139,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                           <NavLink
                             className="nav-link text-primary"
                             to="/favoriteCards"
+                            onClick={() => {
+                              handleCollapse();
+                              navigate("/favoriteCards");
+                            }}
                           >
                             Favorite Cards
                           </NavLink>
@@ -117,6 +156,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                           <NavLink
                             className="nav-link text-primary"
                             to="/myCards"
+                            onClick={() => {
+                              handleCollapse();
+                              navigate("/myCards");
+                            }}
                           >
                             My Cards
                           </NavLink>
@@ -125,6 +168,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                           <NavLink
                             className="nav-link text-primary"
                             to="/newCard"
+                            onClick={() => {
+                              handleCollapse();
+                              navigate("/newCard");
+                            }}
                           >
                             Create New Card
                           </NavLink>
@@ -139,6 +186,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                     className="nav-link text-primary"
                     aria-current="page"
                     to="/contactUs"
+                    onClick={() => {
+                      handleCollapse();
+                      navigate("/contactUs");
+                    }}
                   >
                     Contact Us
                   </NavLink>

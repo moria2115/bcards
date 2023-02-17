@@ -62,11 +62,6 @@ const AllCards: FunctionComponent<AllCardsProps> = () => {
                   <>
                     <button
                       className="btn my-2 border-0"
-                      // className={`btn my-2 w-100 ${
-                      //   UserCtx.userctx.favoriteCards?.includes(card.id as number)
-                      //     ? "btn-warning"
-                      //     : "btn-outline-warning"
-                      // } `}
                       onClick={() => {
                         addCardToFavorites(
                           card.id as number,
