@@ -1,6 +1,5 @@
-import { FunctionComponent, useContext, useState } from "react";
+import { FunctionComponent, useState } from "react";
 import { Link } from "react-router-dom";
-// import { UserContext } from "../App";
 import "../css/forms.css";
 import SignUpUser from "./SignUpUser";
 
@@ -31,7 +30,6 @@ const SignUp: FunctionComponent<SignUpProps> = ({}) => {
           </div>
           <SignUpUser isBusiness={isBusiness} />
         </div>
-
         <Link to="/signIn">Already have a user? Sign In here</Link>
       </div>
     </>

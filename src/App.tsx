@@ -40,9 +40,7 @@ export function App() {
         let userId: number = await JSON.parse(
           sessionStorage.getItem("userId") as string
         );
-
         if (!userId) return;
-
         getUserById(userId)
           .then((res) => {
             setUser({ ...res.data, isLoggedIn: true });

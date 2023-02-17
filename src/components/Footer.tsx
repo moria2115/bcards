@@ -10,50 +10,54 @@ const Footer: FunctionComponent<FooterProps> = () => {
       <footer className="footer text-center text-white">
         <div className="container pt-4">
           <section className="mb-4">
-            <Link
+            <a
               className="btn btn-link btn-floating btn-lg m-1"
-              to={"https://www.facebook.com/moria.dery"}
+              href="https://www.facebook.com/moria.dery"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
             >
               <i className="fab fa-facebook-f"></i>
-            </Link>
+            </a>
 
-            <Link
+            <a
               className="btn btn-link btn-floating btn-lg m-1"
-              to={"https://twitter.com/MoriaDery"}
+              href="https://twitter.com/MoriaDery"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
             >
               <i className="fab fa-twitter"></i>
-            </Link>
+            </a>
 
-            <Link
+            <a
               className="btn btn-link btn-floating btn-lg m-1"
-              to={"https://www.instagram.com/moriamiazrahi/"}
+              href="https://www.instagram.com/moriamiazrahi/"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
             >
               <i className="fab fa-instagram"></i>
-            </Link>
+            </a>
 
-            <Link
+            <a
               className="btn btn-link btn-floating btn-lg m-1"
-              to={"https://www.linkedin.com/in/moria-mizrachi/"}
+              href="https://www.linkedin.com/in/moria-mizrachi/"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
             >
               <i className="fab fa-linkedin"></i>
-            </Link>
-            {/* <!-- Github --> */}
-            <Link
+            </a>
+            <a
               className="btn btn-link btn-floating btn-lg m-1"
-              to={"https://github.com/moria2115"}
+              href="https://github.com/moria2115"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
             >
               <i className="fab fa-github"></i>
-            </Link>
+            </a>
           </section>
         </div>
 

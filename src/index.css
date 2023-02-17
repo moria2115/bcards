@@ -9,7 +9,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("/public/images/background.png");
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
   height: 100vh;
   background-size: cover;
   width: 100%;

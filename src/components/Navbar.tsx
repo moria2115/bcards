@@ -87,7 +87,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                     Business Cards
                   </NavLink>
                 </li>
-
                 {!UserCtx.userctx.isLoggedIn && (
                   <>
                     <li className="nav-item mx-3">
@@ -116,7 +115,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                     </li>
                   </>
                 )}
-
                 {UserCtx.userctx.isLoggedIn && (
                   <>
                     <li className="nav-item mx-3">
@@ -132,7 +130,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                         Profile
                       </NavLink>
                     </li>
-
                     {!UserCtx.userctx.isBusiness && (
                       <>
                         <li className="nav-item mx-3">
@@ -149,7 +146,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                         </li>
                       </>
                     )}
-
                     {UserCtx.userctx.isBusiness && (
                       <>
                         <li className="nav-item mx-3">
@@ -180,7 +176,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                     )}
                   </>
                 )}
-
                 <li className="nav-item mx-3">
                   <NavLink
                     className="nav-link text-primary"
@@ -195,7 +190,6 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
                   </NavLink>
                 </li>
               </ul>
-
               {UserCtx.userctx.isLoggedIn && (
                 <>
                   <form className="d-flex" role="search">

@@ -162,7 +162,6 @@ const UpdateCard: FunctionComponent<UpdateCardProps> = ({
               <small className="text-danger"> {formik.errors.image}</small>
             )}
           </div>
-
           <button
             type="submit"
             disabled={!formik.isValid || !formik.dirty}

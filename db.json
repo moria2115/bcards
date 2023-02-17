@@ -1,42 +1,41 @@
 {
   "users": [
     {
+      "name": "User",
+      "email": "user@test.com",
+      "password": "12345678",
+      "isBusiness": false,
+      "id": 1,
+      "favoriteCards": []
+    },
+    {
       "name": "Business",
       "email": "business@test.com",
       "password": "12345678",
       "isBusiness": true,
-      "id": 1
-    },
-    {
-      "0": 1,
-      "name": "user",
-      "email": "user@test.com",
-      "password": "12345678",
-      "isBusiness": false,
-      "id": 2,
-      "favoriteCards": []
+      "id": 2
     }
   ],
   "cards": [
     {
-      "id": 1,
-      "userId": 1,
       "name": "Hackeru",
       "description": "HackerU is an Israeli training company in the field of computing and information technology.",
       "website": "www.hackeru.com",
-      "phone": "03-6135565",
+      "phone": "036135565",
       "address": "שוהם 5, רמת גן, 52521",
-      "image": "https://www.hackeru.co.il/co/assets/images/hackeru_logo.png"
+      "image": "https://www.hackeru.co.il/co/assets/images/hackeru_logo.png",
+      "id": 1,
+      "userId": 2
     },
     {
       "name": "Samsung",
       "description": "samsung is a major manufacturer of Electronic Components such as lithium-ion batteries, semiconductors, image sensors, camera modules, and displays for clients",
       "website": "https://www.samsung.com/",
-      "phone": "1-800-30-400",
+      "phone": "180030400",
       "address": "Samsung Digital City, Samsungno 129, Maetan-dong, Yeongtong District, Suwon, South Korea",
       "image": "https://images.samsung.com/is/image/samsung/assets/us/about-us/brand/logo/mo/360_197_1.png?$FB_TYPE_B_PNG$",
       "id": 2,
-      "userId": 1
+      "userId": 2
     },
     {
       "name": "Facebook",
@@ -46,27 +45,27 @@
       "address": "Menlo Park, California",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/1920px-2021_Facebook_icon.svg.png",
       "id": 3,
-      "userId": 1
+      "userId": 2
     },
     {
       "name": "Apple",
       "description": "Discover the innovative world of Apple and shop everything iPhone, iPad, Apple Watch, Mac, and Apple TV, plus explore accessories, entertainment",
-      "website": "https://www.apple.com/",
-      "phone": "1-800-MY-APPLE",
+      "website": "https://www.apple.com",
+      "phone": "180020050",
       "address": "1 Apple Park Way, Cupertino, California, U.S.",
       "image": "https://www.apple.com/newsroom/images/default/apple-logo-og.jpg?202302091652",
       "id": 4,
-      "userId": 1
+      "userId": 2
     },
     {
       "name": "Xiaomi",
       "description": "Xiaomi is one of the largest smartphone manufacturers in the world, and one of the largest electronics companies in China.",
       "website": "https://www.mi-il.co.il/",
-      "phone": "08-6852114",
+      "phone": "086852114",
       "address": "Haidian District, China",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg",
       "id": 6,
-      "userId": 1
+      "userId": 2
     },
     {
       "name": "Harel",
@@ -76,7 +75,7 @@
       "address": "Ramat Gan",
       "image": "data:image/png;base64,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",
       "id": 7,
-      "userId": 1
+      "userId": 2
     }
   ]
 }
